@@ -9,15 +9,13 @@
 		<version>2.0.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.guruji</groupId>
-	<artifactId>guruji-users-service</artifactId>
+	<groupId>com.guruji.gateway</groupId>
+	<artifactId>guruji-gateway-service</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>guruji-users-service</name>
+	<name>guruji-gateway-service</name>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<guruji-commons.version>1.0.0</guruji-commons.version>
-		<guruji-auth.version>1.0.0</guruji-auth.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 	</properties>
 
@@ -32,13 +30,20 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+			<version>2.0.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 			<version>2.0.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>2.0.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -47,49 +52,44 @@
 			<version>2.0.5.RELEASE</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>2.4.2</version>
-		</dependency>
 
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.37</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>2.0.1.Final</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+			<version>2.0.4.RELEASE</version>
 		</dependency>
 
-		<!-- **Custom Common Dependency** -->
+
+
+
+
 		<dependency>
-			<groupId>com.guruji.commons</groupId>
-			<artifactId>guruji-commons</artifactId>
-			<version>${guruji-commons.version}</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+			<version>2.0.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.guruji.auth</groupId>
-			<artifactId>auth-service</artifactId>
-			<version>${guruji-auth.version}</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+			<version>2.0.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 	</dependencies>
 
