@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // Entry points
     http
       .authorizeRequests()
-      .antMatchers("/**/swagger-ui/**", "/**/signin/**", "/v2/api-docs", "/configuration/ui", "/swagger-resources",
+      .antMatchers("/**/swagger-ui/**", "/**/signUp/**", "/**/signin/**", "/v2/api-docs", "/configuration/ui", "/swagger-resources",
         "/configuration/security", "/swagger-ui.html", "/webjars/**", "/swagger-resources/configuration/ui",
         "/swagger-ui.html", "/swagger-resources/configuration/security", "/forgot-password", "/validate-token",
         "/reset-password")
