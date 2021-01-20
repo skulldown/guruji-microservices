@@ -1,11 +1,18 @@
 package com.guruji.users.utils;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+
+import com.guruji.users.response.model.Response;
+import com.guruji.users.response.model.ResponseMetadata;
 
 @Component
 public class BaseMethods {
@@ -51,6 +58,27 @@ public class BaseMethods {
 
 	public boolean checkIfStringEmptyOrNot(String string) {
 		return string != null && !string.trim().isEmpty();
+	}
+
+	public static LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
+		return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+	}
+	
+	public Object modifyResponseObject(Object obj, ResponseMetadata responseMetadata, String message) {
+		if (obj instanceof ArrayList<?>) {
+			if (((ArrayList<?>) obj).size() == 1) {
+				obj = ((ArrayList<?>) obj).get(0);
+			} else if (!checkIfListEmptyOrNot((List<?>) obj)) {
+				obj = new HashMap<>();
+			}
+		} else if (obj == null) {
+			obj = new HashMap<>();
+		}
+		Response response = new Response();
+		response.setResults(obj);
+		response.setMessage(message != null && !message.isEmpty() ? message : null);
+		response.setMetadata(responseMetadata);
+		return response;
 	}
 
 }
