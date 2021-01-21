@@ -1,5 +1,6 @@
 package com.guruji.commons.entity;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +34,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class UserEntity extends BaseEntityAudit {
 
+	private static final long serialVersionUID = 1L;
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -42,6 +45,9 @@ public class UserEntity extends BaseEntityAudit {
 
   @Column(name = "last_name")
   private String lastName;
+
+  @Column(name = "middle_name")
+  private String middleName;
 
   @Column(name = "email")
   private String email;
@@ -73,6 +79,18 @@ public class UserEntity extends BaseEntityAudit {
 
   @Column(name = "account_non_locked")
   private Boolean accountNonLocked;
+
+  @Column(name = "country_code")
+  private String countryCode;
+
+  @Column(name = "dob")
+	private LocalDateTime dob;
+
+  @Column(name = "birth_location")
+  private String birthLocation;
+
+  @Column(name = "interests")
+  private String interests;
 
   @JsonIgnore
   @ManyToMany
@@ -202,5 +220,48 @@ public class UserEntity extends BaseEntityAudit {
   public void setRoles(Set<RoleEntity> roles) {
       this.roles = roles;
   }
-  
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
+	public LocalDateTime getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDateTime dob) {
+		this.dob = dob;
+	}
+
+	public String getBirthLocation() {
+		return birthLocation;
+	}
+
+	public void setBirthLocation(String birthLocation) {
+		this.birthLocation = birthLocation;
+	}
+
+	public String getInterests() {
+		return interests;
+	}
+
+	public void setInterests(String interests) {
+		this.interests = interests;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }
